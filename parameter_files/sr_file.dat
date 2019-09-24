@@ -1,0 +1,48 @@
+#Luminosity-Mass
+
+0	Schellenberger (2017)
+
+	Lx    --> X-ray Luminosity
+	h     --> 0.71 
+	E_z   --> E(z) Cosmology function
+	e_L   --> redshift evolution of Normalization
+	M     --> Mass in SolarM / h  
+	
+	Norm  --> 0.84 +/- 0.06
+	Slope --> 1.35 +/- 0.07
+
+	log10(Lx (erg/s) / (h^(-2) * 1e44)) = Norm*(E_z**e_L) + Slope*log10(M (SolarM) / (h^(-1) * 1e15)) 
+
+
+#Y_compton-Mass
+	
+0	Planck (2013)
+
+	D_A   --> Angular diameter distance in Mpc
+	E_z   --> E(z) Cosmology function
+	e_Y   --> redshift evolution of Normalization [e_Y = -2/3]
+	M     --> Mass in SolarM / h  
+
+	Norm  --> -0.175
+	Slope --> 1.77
+
+	E_z^(e_Y) * [ (D_A)^2 (Mpc^2) * Y_500 / 1e-4 ] = 10^(-0.175) * [ M (SolarM) / 6e14 ]^(1.77)
+
+#Temperature-Mass
+
+0	Lovisari (2014)
+
+	Norm  --> 0.20 +/- 0.02
+	Slope --> 1.71 +/- 0.04
+	
+	e_T   --> -1.04 +/- 0.07 M-T (A. Reichert, H. Bohringer, R. Fassbender, M. Muhlegger (2018))
+	
+  
+    	np.log10(Y/C1) = B*np.log10(X/C2) + (A)
+    	Y = M (M_solar h70^-1)
+    	X = T (keV)
+    	C1 = 5 · 10^13 h_70 ^−1 M⊙  C2 = 2 keV
+	
+	T = 10 ** ( (1/B) * ( np.log10(M/C1) - ( A * (E_z**e) ) ) )
+
+	
