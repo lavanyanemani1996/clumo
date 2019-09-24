@@ -18,9 +18,7 @@ def copytree(src, dst, symlinks=False, ignore=None):
         else:
             shutil.copy2(s, d)
 
-def create_dir():
-
-    directory = input("Enter directory name to save resuls: E.g (run_ddmmyy) : ")
+def create_dir(directory):
 
     parent_dir = os.getcwd()
 
@@ -41,12 +39,13 @@ def create_dir():
     copytree(path_1, path_a)
     copytree(path_2, path_b)
 
-    print("Copy of paramter files loaded in directory '%s'" %directory)
+    print("Copy of paramter files loaded in directory '%s'. Please change parameters only inside this directory." %directory)
 
     print("Your machine has {} CPUs / cores".format(mp.cpu_count()))
+    
     print("Now in your created directory change parameters as required and then use function clumorun(directoryname, numberofcores) to create cluster sample")
 
-    return directory
+    return None
 
 
 def clumorun(direc, k):
