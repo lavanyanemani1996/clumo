@@ -21,7 +21,7 @@ Regarding parameter files:
    srparams.dat
    
 7. File srparams.dat consists of all information regarding the scaling relations. Row sr_file	can be used to 
-   chose different scaling relations (choice code in sr_file.dat). Row sig_0 is to enter sigma_10 of the different properties 
+   chose different scaling relations (choice code in sr_file.dat). Row sig_0 is to enter sigma(log base 10) of the different properties 
    at z = 0. Row z_ev_sig_0	can be used to set redshift & mass evolution of sigma (Use 1 for sigma(M,z) and 0 for const sigma).
    Rows norm, slope, z_evo are for the wanted scaling relations Normalization, slope and redshift evolution. The matrix cor 
    describes the correlation coefficient matrix between the different properties. 
