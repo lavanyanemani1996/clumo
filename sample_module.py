@@ -72,16 +72,29 @@ def scalingrelations(cosmo, M, sr_rel, sr_rel_params, z_i):
     i = 0
     while i < np.shape(sr_rel)[0]:
 
+        #sr_file = 0
         if sr_rel[i] == 0:
 
             A, B, e = sr_rel_params[:, i]
-
             if i == 0:
-                array[:, i] = sm.LM_Schellenberger_2017(cosmo, M, z_i, A, B, e)
+                array[:, i] = sm.LM_0(cosmo, M, z_i, A, B, e)
             elif i == 1:
-                array[:, i] = sm.YM_Plank_2013(cosmo, M, z_i, A, B)
+                array[:, i] = sm.YM_0(cosmo, M, z_i, A, B)
             elif i == 2:
-                array[:, i] = sm.MT_Lovisari_2014(cosmo, M, z_i, A, B, e)
+                array[:, i] = sm.MT_0(cosmo, M, z_i, A, B, e)
+
+        #sr_file = 1
+        if sr_rel[i] == 1:
+
+            A, B, e = sr_rel_params[:, i]
+            if i == 0:
+                array[:, i] = sm.LM_1(cosmo, M, z_i, A, B, e)
+            elif i == 1:
+                array[:, i] = sm.YM_1(cosmo, M, z_i, A, B)
+            elif i == 2:
+                array[:, i] = sm.MT_1(cosmo, M, z_i, A, B, e)
+
+        #add your own scaling relations
 
         i = i+1
 
