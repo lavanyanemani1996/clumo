@@ -1,48 +1,89 @@
 #Luminosity-Mass
 
-0	Schellenberger (2017)
+0	Format & Default : Schellenberger (2017)
+  	Given masses in M_solar h^{-1} returns [X-ray L in ergs/s] at given redshift z.
 
 	Lx    --> X-ray Luminosity
-	h     --> 0.71 
+	h     --> 0.71 used
 	E_z   --> E(z) Cosmology function
-	e_L   --> redshift evolution of Normalization
-	M     --> Mass in SolarM / h  
-	
+	e_L   --> redshift evolution of Normalization --> −0.81 +/- 0.12 in M-L (A. Reichert(2018))
+	M     --> Mass in SolarM / h
+
 	Norm  --> 0.84 +/- 0.06
 	Slope --> 1.35 +/- 0.07
 
-	log10(Lx (erg/s) / (h^(-2) * 1e44)) = Norm*(E_z**e_L) + Slope*log10(M (SolarM) / (h^(-1) * 1e15)) 
+	log10(Lx (erg/s) / (h^(-2) * 1e44)) = Norm*(E_z**e_L) + Slope*log10(M (SolarM) / (h^(-1) * 1e15))
 
+
+1	Format & Default : Reichert (2011)
+  	Format also used in Pratt (2009) scaling relations.
+
+  	Given masses in M_solar h^{-1} returns [X-ray L in ergs/s] at given redshift z.
+
+  	Lx    --> X-ray Luminosity
+  	E_z   --> E(z) Cosmology function
+  	e_L   --> redshift evolution of Normalization --> −0.81 +/- 0.12 in M-L (A. Reichert(2011))
+  	M     --> Mass in SolarM / h
+
+  	Norm  --> 1.91 +/- 0.104
+  	Slope --> 0.66 +/- 0.04
+	
+  	M = (1e14 Solar mass) * (Norm) * (Lx[1e44 ergs/s])**(Slope)
 
 #Y_compton-Mass
-	
-0	Planck (2013)
 
-	D_A   --> Angular diameter distance in Mpc
-	E_z   --> E(z) Cosmology function
-	e_Y   --> redshift evolution of Normalization [e_Y = -2/3]
-	M     --> Mass in SolarM / h  
+0 	Format & Default : Plank (2013)
+  	Given masses in M_solar h^-1 returns Y * E(z)**e * D_A**2 [Mpc^2] compton at given z.
 
-	Norm  --> -0.175
-	Slope --> 1.77
 
-	E_z^(e_Y) * [ (D_A)^2 (Mpc^2) * Y_500 / 1e-4 ] = 10^(-0.175) * [ M (SolarM) / 6e14 ]^(1.77)
+	D_A --> Angular diameter distance in Mpc
+	E_z --> E(z) Cosmology function
+	e_Y --> redshift evolution of Normalization [e_Y = -2/3]
+	M   --> Mass in SolarM / h
+
+	Norm --> -0.175 +/- 0.011
+  	Slope  --> 1.77 +/- 0.06
+
+	E_z^(e_Y) * [ (D_A)^2 (Mpc^2) * Y_500 / 1e-4 ] = 10^(Norm) * [ M (SolarM) / 6e14 ]^(Slope)
+
+1 	Format & Default : Nagarajan (2018)
+  	Given masses in M_solar h^-1 returns Y * E(z)**e * D_A**2 [Mpc^2] compton at given z.
+
+  	E_z --> E(z) Cosmology function
+  	e_Y --> redshift evolution of Normalization [e_Y = -2/3]
+  	M   --> Mass in SolarM / h
+
+ 	Norm --> 0.86 + 0.18 - 0.21
+  	Slope --> 1.51 + 0.28 - 0.24
+
+  	Y_pivot --> 7.93e-5 [Mpc^2]
+  	M_pivot --> 7e14 [Solarmass]
+
+  	(Y_500 / Y_pivot) * (E_z ** e_Y) = Norm * (M[Solarmass]/M_pivot)**(Slope)
+
 
 #Temperature-Mass
 
-0	Lovisari (2014)
+0 	Format & Default : Lovisari (2015)
+  	Given masses in M_solar h^-1 returns T in keV in z.
 
 	Norm  --> 0.20 +/- 0.02
 	Slope --> 1.71 +/- 0.04
-	
-	e_T   --> -1.04 +/- 0.07 M-T (A. Reichert, H. Bohringer, R. Fassbender, M. Muhlegger (2018))
-	
-  
-    	np.log10(Y/C1) = B*np.log10(X/C2) + (A)
-    	Y = M (M_solar h70^-1)
-    	X = T (keV)
-    	C1 = 5 · 10^13 h_70 ^−1 M⊙  C2 = 2 keV
-	
-	T = 10 ** ( (1/B) * ( np.log10(M/C1) - ( A * (E_z**e) ) ) )
 
-	
+	e_T   --> -1.04 +/- 0.07 M-T (A. Reichert, H. Bohringer, R. Fassbender, M. Muhlegger (2018))
+  	Y = M (M_solar h70^-1)
+  	X = T (keV)
+  	C1 = 5 · 10^13 h_70 ^−1 M⊙  C2 = 2 keV
+
+  	np.log10(Y/C1) = B*np.log10(X/C2) + (A)
+
+
+1 	Format & Default : Reichert (2011)
+  	Given masses in M_solar h^-1 returns T in keV in z.
+
+  	Norm  --> 0.236 +/- 0.031
+  	Slope --> 1.76 +/- 0.08
+
+  	e_T   --> -1.04 +/- 0.07 M-T (A. Reichert, H. Bohringer, R. Fassbender, M. Muhlegger (2011))
+
+  	M[Solarmass] = 1e14[Solarmass] * (Norm) * (T)**(Slope)
