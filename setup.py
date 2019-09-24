@@ -6,5 +6,5 @@ setup(name='clumo',
       url='https://github.com/lavanyanemani1996/clumo.git',
       install_requires=['numpy', 'math', 'astropy', 'hmf', 'scipy','random',
 			'time', 'multiprocessing', 'itertools','xspec'],
-      packages=['clumo'],
+      packages=['myclumo'],
       zip_safe=False)
