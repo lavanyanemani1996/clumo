@@ -28,9 +28,6 @@ from scipy.interpolate import interp1d
 from scipy.integrate import simps, trapz
 from scipy.interpolate import InterpolatedUnivariateSpline as _spline
 
-from functools import partial
-import camb
-import pynverse
 
 import scaling_relations_module as sm
 #Functions
