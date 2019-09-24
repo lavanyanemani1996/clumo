@@ -4,5 +4,5 @@ clumo can be used to create a mock catalog consisting of various galaxy cluster 
 
 1. import cluster_run as cr
 2. Use cr.create_dir() to create a directory where you would save your results.
-3. Change parameters as required in the parameter_files folder
+3. Change parameters as required in the parameter_files folder inside your created directory
 4. Use cr.clumorun(directoryname, numberofcores) to create the sample
