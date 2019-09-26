@@ -1,4 +1,4 @@
-# clumo
+# Clumo
 
 This is the the description of the repository "clumo". It was created as part of a master thesis project at Argelander Institute for Astronomy, University of Bonn under the supervision of Prof. Dr. Thomas Reiprich, Dr. Florian Pacaud & Dr. Aarti Nagarajan.
 
