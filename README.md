@@ -4,6 +4,8 @@ This is the the description of the repository "clumo". It was created as part of
 
 clumo can be used to create a mock catalog consisting of various galaxy cluster properties like luminosity, temperature, y-compton paramater, fluxes and x-ray cts. For this the user can select cosmology, sample size, scaling relations and instrument's response. 
 
+Please make sure you have the following \texttt{python} modules for successfully using the tool; \texttt{numpy, math, astropy, hmf, scipy, multiprocessing, os, sys, shutil, random, time, PyXspec}. 
+
 1. import cluster_run as cr
 2. Chose a name for the directory where you would save your results: For example: name = 'run_1' 
 2. Use cr.create_dir(name).
