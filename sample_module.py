@@ -37,26 +37,29 @@ def create_rand_m(dN_bin, z_bin, h):
 
     mass_sampled_array = np.zeros(shape = (np.size(z_bin), int(np.max(dN_bin))))
 
-    start = time.time()
+    start1 = time.time()
 
     n = np.size(z_bin)
     i = 0
     while i < n:
 
-        h.update(z=z_bin[i])
-        icdf = _spline((h.ngtm / h.ngtm[0])[::-1], np.log10(h.m[::-1]), k=3)
+        start = time.time()
 
-        N = int(dN_bin[i])
-        x = np.random.random(N)
         ind = int(dN_bin[i])
+        mass_sampled_array[i, 0:ind] = hmf.sample.sample_mf( int(dN_bin[i]), log_mmin = Mmin,  \
+                                                            sort = True, z=z_bin[i], cosmo_model = new_model,\
+                                                            hmf_model = hmf_model, sigma_8 = sigma_8, n = n_s , delta_h = delta_h, delta_wrt = delta_wrt, Mmax = Mmax, dlog10m = dlog10m, transfer_model = transfer_model, lnk_min = lnk_min, lnk_max = lnk_max, dlnk = dlnk, transfer_params=None, takahashi=True )[0] 
 
-        mass_sampled_array[i, 0:ind] = 10 ** icdf(x)
+        end = time.time()
 
+        print(end-start)
+        print("Sampled z bin ", z_bin[i])
+        
         i = i+1
 
     end = time.time()
 
-    print(end-start)
+    print(end-start1)
 
     return mass_sampled_array
 
